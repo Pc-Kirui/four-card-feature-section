@@ -1,0 +1,157 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Primary colors */
+  --blue: hsl(212, 86%, 64%);
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --dusk-blue: hsl(228, 45%, 44%);
+
+  /* Neutral colors */
+  --white: hsl(0, 0%, 100%);
+  --grey-500: hsl(234, 12%, 34%);
+  --grey-400: hsl(212, 6%, 44%);
+
+  /* Fonts */
+  --ft-family: "Poppins", sans-serif;
+  --ft-size: 0.9375rem;
+}
+
+body {
+  font-family: var(--ft-family);
+  font-size: var(--ft-size);
+  background: rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+}
+
+h1,
+h2 {
+  color: var(--grey-500);
+}
+
+p {
+  color: var(--grey-400);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+footer {
+  margin-block-end: auto;
+  padding-bottom: 0.75em;
+}
+
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header section */
+.header {
+  margin: 3em auto;
+}
+
+/* Main section */
+
+.main {
+  margin-bottom: 2em;
+  flex: 1;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25em;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 0.5em;
+  padding: 1.5em;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+}
+
+.card p {
+  margin-block-end: 2em;
+}
+
+.card--supervisor {
+  border-top: 4px solid var(--cyan);
+}
+
+.card--team-builder {
+  border-top: 4px solid var(--red);
+}
+
+.card--karma {
+  border-top: 4px solid var(--orange);
+}
+
+.card--calculator {
+  border-top: 4px solid var(--blue);
+}
+
+.icon {
+  /* position: absolute; */
+  /* bottom: 1.5em; */
+  /* right: 1.5em; */
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--dusk-blue);
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      ". team-builder ."
+      "supervisor team-builder calculator"
+      "supervisor karma calculator"
+      ". karma .";
+  }
+
+  .card--supervisor {
+    grid-area: supervisor;
+  }
+
+  .card--team-builder {
+    grid-area: team-builder;
+  }
+
+  .card--karma {
+    grid-area: karma;
+  }
+
+  .card--calculator {
+    grid-area: calculator;
+  }
+}
